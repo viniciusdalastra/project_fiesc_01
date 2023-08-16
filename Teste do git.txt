@@ -1,1 +1,54 @@
-teste 1
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Estrutura de dados</title>
+  </head>
+  <script>
+      window.valores = [];
+      
+      function addFim(){
+        var campo = document.getElementById('field_numero');
+        var valorCampo = +campo.value;
+        campo.value = '';
+        window.valores.push(valorCampo);
+        atualizaValoresTela();
+      }
+
+      function atualizaValoresTela(){
+        var pValores = document.getElementById('valores');
+        console.log(window.valores)
+        pValores.innerHTML = '<p>'+window.valores.join(' | ')+'</p>'
+      }
+      // function addInicio(){
+      // }
+      // function delInicio(){
+      // }
+      // function delFim(){
+      // }
+    </script>
+  <body>
+    <h1>Estrutura de dados</h1>
+    <div>
+      <h5>Campo de Adicionar</h5>
+      <input type="number" id="field_numero" />
+      <button onclick="addInicio()">Adiciona inicio</button>
+      <button onclick="addFim()">Adiciona fim</button>
+      <button onclick="delInicio()">Remove inicio - FIFO</button>
+      <button onclick="delFim()">Remove fim - LIFO</button>
+    </div>
+    <div>
+      <h5>Ordenação</h5>
+      <button>Ordena Crescente</button>
+      <button>Ordena Decrescente</button>
+    </div>
+    <div>
+      <h5>Campo de Busca</h5>
+      <input type="number" id="field_search" />
+      <button>Buscar</button>
+    </div>
+    <hr />
+    <h3>Valores<h3>
+    <div id="valores"></div>
+  </body>
+</html>
