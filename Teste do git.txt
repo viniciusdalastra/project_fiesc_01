@@ -17,15 +17,19 @@
 
       function atualizaValoresTela(){
         var pValores = document.getElementById('valores');
-        console.log(window.valores)
         pValores.innerHTML = '<p>'+window.valores.join(' | ')+'</p>'
       }
       // function addInicio(){
       // }
       // function delInicio(){
       // }
-      // function delFim(){
-      // }
+       function delFim(){
+         const length = window.valores.length;
+        if(length > 0){
+          delete window.valores[length -1]
+        }
+        atualizaValoresTela();
+       }
     </script>
   <body>
     <h1>Estrutura de dados</h1>
