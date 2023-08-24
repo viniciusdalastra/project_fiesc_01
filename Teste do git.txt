@@ -18,16 +18,41 @@
 
     function atualizaValoresTela() {
         var pValores = document.getElementById('valores');
-        pValores.innerHTML = '<p>' + window.valores.join(' | ') + '</p>'
+        const valor = '<p>' + window.valores.join(' | ') + '</p>';
+        const key = '<p>' + Array.from(window.valores.keys()).join(' | ') + '</p>'
+        pValores.innerHTML = valor  + key;
     }
-    // function addInicio(){
-    // }
-    // function delInicio(){
-    // }
+
+    function addInicio(){
+        var campo = document.getElementById('field_numero');
+        var valorCampo = +campo.value;
+        campo.value = '';
+        window.valores.unshift(valorCampo);
+        atualizaValoresTela();
+    }
+
+    function delInicio(){
+        let length = window.valores.length;
+        if (length > 0) {
+            var newValores = [];
+            for(const index in window.valores){
+                if(index == 0){
+                    continue;
+                }
+                else{
+                    newValores.push(window.valores[index])
+                }
+            }
+            window.valores = newValores;
+            
+        }
+        atualizaValoresTela();
+    }
+
     function delFim() {
         let length = window.valores.length;
         if (length > 0) {
-            window.valores = window.valores.filter((el,index)=> index !== length - 1)
+            window.valores = window.valores.filter((el, index) => index !== length - 1)
         }
         atualizaValoresTela();
     }
